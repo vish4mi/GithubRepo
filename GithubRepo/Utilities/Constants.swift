@@ -13,7 +13,7 @@ struct Constants {
     
     //MARK: APIServiceMethods
     struct APIServiceMethods {
-        static let searchRepoAPI = Constants.APIServiceMethods.apiURL(methodName: "/movies.json")
+        static let searchRepoAPI = Constants.APIServiceMethods.apiURL(methodName: "/search/repositories?q=language:{language}&sort=stars&order=desc")
         
         static func apiURL(methodName: String) -> String {
             var baseURL = Constants.BASEURL

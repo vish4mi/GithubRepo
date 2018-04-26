@@ -25,6 +25,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func searchButtonClicked(_ sender: UIButton) {
+        if let searchKey = searchString {
+            APIManager.sharedManager.getRepositoryData(withLanguage: searchKey) { (repoDataModel, error) in
+                
+            }
+        }
     }
     
     
