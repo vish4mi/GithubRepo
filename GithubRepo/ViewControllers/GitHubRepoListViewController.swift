@@ -10,6 +10,9 @@ import UIKit
 
 class GitHubRepoListViewController: UIViewController {
 
+    @IBOutlet weak var gitHubRepoCollectionView: UICollectionView!
+    fileprivate let repoCollectionCellIdentifier = "GitHubRepoCollectionViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +25,6 @@ class GitHubRepoListViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -30,6 +32,18 @@ class GitHubRepoListViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
+}
+
+extension GitHubRepoListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let aCell: GitHubRepoCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: repoCollectionCellIdentifier, for: indexPath) as! GitHubRepoCollectionViewCell
+        return aCell
+    }
+    
+    
 }

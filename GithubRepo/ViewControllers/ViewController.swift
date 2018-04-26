@@ -24,6 +24,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Navigation    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let gitHubRepoListVC: GitHubRepoListViewController = segue.destination as? GitHubRepoListViewController {
+            
+        }
+    }
+    
     @IBAction func searchButtonClicked(_ sender: UIButton) {
         if let searchKey = searchString {
             APIManager.sharedManager.getRepositoryData(withLanguage: searchKey) { (repoDataModel, error) in
