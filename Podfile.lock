@@ -1,0 +1,18 @@
+PODS:
+  - Kingfisher (4.6.3)
+  - MBProgressHUD (1.1.0)
+  - ObjectMapper (3.1.0)
+
+DEPENDENCIES:
+  - Kingfisher
+  - MBProgressHUD
+  - ObjectMapper
+
+SPEC CHECKSUMS:
+  Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+
+PODFILE CHECKSUM: 12186c98bd5c1abc0765a1bc8971e2895f1577cd
+
+COCOAPODS: 1.4.0

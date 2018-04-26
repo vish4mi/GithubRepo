@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GithubRepo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94w-5B-Uhc">
+                                <rect key="frame" x="0.0" y="263.5" width="375" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvb-1j-BR2">
+                                        <rect key="frame" x="10" y="10" width="355" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pb3-fL-HFH">
+                                        <rect key="frame" x="20" y="40" width="335" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="e5H-rm-QGp"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25H-F8-yre">
+                                        <rect key="frame" x="87.5" y="90" width="200" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="79K-NE-pHM"/>
+                                            <constraint firstAttribute="height" constant="40" id="7Mz-JX-CGb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="searchButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4hT-QF-2j8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fvb-1j-BR2" firstAttribute="top" secondItem="94w-5B-Uhc" secondAttribute="top" constant="10" id="84t-bO-ySP"/>
+                                    <constraint firstAttribute="trailing" secondItem="fvb-1j-BR2" secondAttribute="trailing" constant="10" id="Avs-lM-adE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pb3-fL-HFH" secondAttribute="trailing" constant="20" symbolic="YES" id="FAe-KD-EYq"/>
+                                    <constraint firstAttribute="bottom" secondItem="25H-F8-yre" secondAttribute="bottom" constant="10" id="KEL-OZ-tTz"/>
+                                    <constraint firstItem="25H-F8-yre" firstAttribute="top" secondItem="Pb3-fL-HFH" secondAttribute="bottom" constant="10" id="KWJ-dd-fFZ"/>
+                                    <constraint firstItem="Pb3-fL-HFH" firstAttribute="leading" secondItem="94w-5B-Uhc" secondAttribute="leading" constant="20" symbolic="YES" id="P5W-hz-jPm"/>
+                                    <constraint firstItem="25H-F8-yre" firstAttribute="centerX" secondItem="94w-5B-Uhc" secondAttribute="centerX" id="ZoC-pz-Y6o"/>
+                                    <constraint firstItem="fvb-1j-BR2" firstAttribute="leading" secondItem="94w-5B-Uhc" secondAttribute="leading" constant="10" id="tM3-Pu-QoY"/>
+                                    <constraint firstItem="Pb3-fL-HFH" firstAttribute="top" secondItem="fvb-1j-BR2" secondAttribute="bottom" constant="10" id="vfH-RZ-HG7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="94w-5B-Uhc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9yB-T2-Wa7"/>
+                            <constraint firstItem="94w-5B-Uhc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GLf-V5-sDx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="94w-5B-Uhc" secondAttribute="trailing" id="jht-uo-Xwk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="languageTextField" destination="Pb3-fL-HFH" id="yUb-XC-B8x"/>
+                        <outlet property="searchButton" destination="25H-F8-yre" id="8do-WV-m5w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="126.38680659670166"/>
         </scene>
     </scenes>
 </document>

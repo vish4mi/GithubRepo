@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var languageTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    fileprivate var searchString: String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +24,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func searchButtonClicked(_ sender: UIButton) {
+    }
+    
+    
+    
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let oldText = textField.text {
+            searchString = oldText + string
+        }
+        
+        return true
+    }
+}
