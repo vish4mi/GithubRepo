@@ -14,6 +14,8 @@
 		C977BFD520926F9E00685AF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977BFD420926F9E00685AF1 /* ViewController.swift */; };
 		C977BFD72092702000685AF1 /* GitHubRepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977BFD62092702000685AF1 /* GitHubRepoListViewController.swift */; };
 		C977BFDA209271E100685AF1 /* GitHubRepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977BFD9209271E100685AF1 /* GitHubRepoCollectionViewCell.swift */; };
+		C977BFDD209280E800685AF1 /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977BFDC209280E800685AF1 /* RepoListViewModel.swift */; };
+		C977BFDF2092827A00685AF1 /* RepoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977BFDE2092827A00685AF1 /* RepoListCellViewModel.swift */; };
 		C9AE3C0C2091117A00498955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AE3C0B2091117A00498955 /* AppDelegate.swift */; };
 		C9AE3C112091117A00498955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AE3C0F2091117A00498955 /* Main.storyboard */; };
 		C9AE3C132091117A00498955 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9AE3C122091117A00498955 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		C977BFD420926F9E00685AF1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C977BFD62092702000685AF1 /* GitHubRepoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoListViewController.swift; sourceTree = "<group>"; };
 		C977BFD9209271E100685AF1 /* GitHubRepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoCollectionViewCell.swift; sourceTree = "<group>"; };
+		C977BFDC209280E800685AF1 /* RepoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
+		C977BFDE2092827A00685AF1 /* RepoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListCellViewModel.swift; sourceTree = "<group>"; };
 		C9AE3C082091117A00498955 /* GithubRepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubRepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AE3C0B2091117A00498955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9AE3C102091117A00498955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 			path = ListViewComponents;
 			sourceTree = "<group>";
 		};
+		C977BFDB209280A000685AF1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C977BFDC209280E800685AF1 /* RepoListViewModel.swift */,
+				C977BFDE2092827A00685AF1 /* RepoListCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		C9AE3BFF2091117A00498955 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,7 @@
 		C9AE3C0A2091117A00498955 /* GithubRepo */ = {
 			isa = PBXGroup;
 			children = (
+				C977BFDB209280A000685AF1 /* ViewModels */,
 				C977BFD320926F6100685AF1 /* ViewControllers */,
 				C9AE3C282091273E00498955 /* Models */,
 				C9AE3C1D2091244E00498955 /* Utilities */,
@@ -302,10 +316,12 @@
 				C977BFD520926F9E00685AF1 /* ViewController.swift in Sources */,
 				C9AE3C202091247100498955 /* APIManager.swift in Sources */,
 				C977BFD2209269EF00685AF1 /* RepositoryDataModel.swift in Sources */,
+				C977BFDD209280E800685AF1 /* RepoListViewModel.swift in Sources */,
 				C977BFD020925C2B00685AF1 /* LicenseModel.swift in Sources */,
 				C977BFCE20925A5B00685AF1 /* UserModel.swift in Sources */,
 				C977BFDA209271E100685AF1 /* GitHubRepoCollectionViewCell.swift in Sources */,
 				C9AE3C272091253100498955 /* ConfigurationManager.swift in Sources */,
+				C977BFDF2092827A00685AF1 /* RepoListCellViewModel.swift in Sources */,
 				C9AE3C0C2091117A00498955 /* AppDelegate.swift in Sources */,
 				C9AE3C22209124DA00498955 /* Constants.swift in Sources */,
 				C9AE3C2A2091277D00498955 /* RepositoryModel.swift in Sources */,
