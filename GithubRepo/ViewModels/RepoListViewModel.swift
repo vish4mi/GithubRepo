@@ -10,23 +10,15 @@ import Foundation
 
 class RepoListViewModel: NSObject {
     
-    /// Content Title
-    internal var title: String?
-    
-    /// Content Image
-    internal var image: String?
-    
-    /// Content rating
-    internal var rating: String?
-    
-    /// Release year
-    internal var releaseYear: String?
-    
-    /// Genre
-    internal var genre: String?
+    /// Repo title
+    var repoCount: Int?
+    var repoModels: [RepositoryModel]?
     
     
-    init(with model: RepositoryDataModel) {
-        
+    init(with model: RepositoryDataModel?) {
+        if let repoDataModel = model, let repoListModels = repoDataModel.items {
+            repoCount = repoListModels.count
+            repoModels = repoListModels
+        }
     }
 }

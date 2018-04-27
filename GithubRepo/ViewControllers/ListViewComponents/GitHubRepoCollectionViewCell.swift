@@ -11,4 +11,19 @@ import UIKit
 class GitHubRepoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var repoTitleLabel: UILabel!
+    fileprivate var repoListCellViewModel: RepoListCellViewModel?
+    
+    func setupCell(with repoViewModel: RepoListCellViewModel?) {
+        if let aViewModel = repoViewModel {
+            repoListCellViewModel = aViewModel
+            if let repoTitle = aViewModel.repoTitle {
+                repoTitleLabel.text = repoTitle
+            }
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
 }

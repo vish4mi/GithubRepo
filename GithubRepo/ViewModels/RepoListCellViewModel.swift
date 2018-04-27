@@ -10,23 +10,15 @@ import Foundation
 
 class RepoListCellViewModel: NSObject {
     
-    /// Content Title
-    internal var title: String?
-    
-    /// Content Image
-    internal var image: String?
-    
-    /// Content rating
-    internal var rating: String?
-    
-    /// Release year
-    internal var releaseYear: String?
-    
-    /// Genre
-    internal var genre: String?
+    /// Repo title
+    var repoTitle: String?
+    var repositoryModel: RepositoryModel?
     
     
-    init(with model: RepositoryModel) {
-        
+    init(with model: RepositoryModel?) {
+        if let repoModel = model {
+            repoTitle = repoModel.name
+            repositoryModel = repoModel
+        }
     }
 }

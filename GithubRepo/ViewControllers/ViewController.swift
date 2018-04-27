@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var languageTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     fileprivate var searchString: String? = nil
+    fileprivate var repoListViewModel: RepoListViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +27,21 @@ class ViewController: UIViewController {
 
     // MARK: - Navigation    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let gitHubRepoListVC: GitHubRepoListViewController = segue.destination as? GitHubRepoListViewController {
-            
+        if segue.identifier == Constants.SHOW_REPO_LIST_VC_SEGUE {
+            if let gitHubRepoListVC: GitHubRepoListViewController = segue.destination as? GitHubRepoListViewController {
+                gitHubRepoListVC.repoListViewModel = repoListViewModel
+            }
         }
     }
+    
     
     @IBAction func searchButtonClicked(_ sender: UIButton) {
         if let searchKey = searchString {
             APIManager.sharedManager.getRepositoryData(withLanguage: searchKey) { (repoDataModel, error) in
-                
+                if let repoData = repoDataModel {
+                    self.repoListViewModel = RepoListViewModel(with: repoData)
+                    self.performSegue(withIdentifier: Constants.SHOW_REPO_LIST_VC_SEGUE, sender: self)
+                }
             }
         }
     }
