@@ -88,6 +88,7 @@ extension GitHubRepoListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let repoListViewModel = self.repoListViewModel, let repoModels = repoListViewModel.repoModels, indexPath.row < repoModels.count {
+            selectedIndexPath = indexPath
             self.performSegue(withIdentifier: Constants.SHOW_REPO_DETAILS_VC_SEGUE, sender: self)
         }
     }

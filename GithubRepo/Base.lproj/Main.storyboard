@@ -211,7 +211,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="30" translatesAutoresizingMaskIntoConstraints="NO" id="asC-hT-mo5">
+                            <pageControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" defersCurrentPageDisplay="YES" numberOfPages="30" translatesAutoresizingMaskIntoConstraints="NO" id="asC-hT-mo5">
                                 <rect key="frame" x="30" y="627" width="315" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IRM-gv-Fh7"/>

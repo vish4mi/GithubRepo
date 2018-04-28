@@ -16,7 +16,8 @@ class GitHubRepoDetailsViewController: UIViewController {
     @IBOutlet weak var repoDetailsCollectionView: UICollectionView!
     var repoListViewModel: RepoListViewModel?
     var selectedIndexPath: IndexPath?
-
+    var initialScrollDone = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()        
     }
@@ -42,6 +43,16 @@ class GitHubRepoDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !initialScrollDone {
+            initialScrollDone = true
+            if let indexPath = selectedIndexPath {
+                repoDetailsCollectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+            }
+        }
     }
 }
 
