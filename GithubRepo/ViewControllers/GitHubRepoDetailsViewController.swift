@@ -65,16 +65,16 @@ extension GitHubRepoDetailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = repoDetailsCollectionView.frame.width
         let collectionViewHeight = repoDetailsCollectionView.frame.height
-        return CGSize(width: collectionViewWidth, height: collectionViewHeight)
+        return CGSize(width: collectionViewWidth-10, height: collectionViewHeight-10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         var insets = UIEdgeInsets.zero
-        insets = UIEdgeInsets.init(top: 0, left: 0, bottom: 10, right: 0)
+        insets = UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5)
         return insets
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
 }

@@ -19,10 +19,20 @@ class GitHubRepoDetailsViewCell: UICollectionViewCell {
     var issueViewModels: [RepoIssueViewModel]?
     var repoContributorViewModels: [RepoContributorViewModel]?
     var repoDetailsViewModel: RepoDetailsViewModel?
-
+    @IBOutlet weak var repoDescriptionView: UIView!
+    @IBOutlet weak var repoInfoView: UIView!
+    
     func configure() {
         topIssuesCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
         topContributorsCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
+        
+        repoDescriptionView.layer.cornerRadius = 5
+        repoDescriptionView.layer.borderWidth = 1
+        repoDescriptionView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        repoInfoView.layer.cornerRadius = 5
+        repoInfoView.layer.borderWidth = 1
+        repoInfoView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func setupCell(with repoViewModel: RepoDetailsViewModel?) {
@@ -77,6 +87,24 @@ class GitHubRepoDetailsViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        repoDescriptionView.layer.cornerRadius = 5
+        repoDescriptionView.layer.borderWidth = 1
+        repoDescriptionView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        repoInfoView.layer.cornerRadius = 5
+        repoInfoView.layer.borderWidth = 1
+        repoInfoView.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    override func prepareForReuse() {
+        issueViewModels?.removeAll()
+        issueViewModels = nil
+        
+        repoContributorViewModels?.removeAll()
+        repoContributorViewModels = nil
+        
+        repoDetailsViewModel = nil
     }
 }
 
