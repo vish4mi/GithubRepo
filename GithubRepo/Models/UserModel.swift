@@ -28,6 +28,7 @@ class UserModel: NSObject, Mappable {
     var received_events_url: String?
     var type: String?
     var site_admin: Bool?
+    var contributions: Int?
     
     required init?(map: Map) {
         
@@ -52,6 +53,6 @@ class UserModel: NSObject, Mappable {
         received_events_url <- map["received_events_url"]
         type                <- map["type"]
         site_admin        <- map["site_admin"]
-
+        contributions     <- map["contributions"]
     }
 }

@@ -14,6 +14,7 @@ class GitHubRepoListViewController: UIViewController {
     fileprivate let repoCollectionCellIdentifier = "GitHubRepoCollectionViewCell"
     var repoListViewModel: RepoListViewModel?
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    fileprivate var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,12 @@ class GitHubRepoListViewController: UIViewController {
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Constants.SHOW_REPO_DETAILS_VC_SEGUE {
+            if let gitHubRepoDetailsVC: GitHubRepoDetailsViewController = segue.destination as? GitHubRepoDetailsViewController {
+                gitHubRepoDetailsVC.repoListViewModel = repoListViewModel
+                gitHubRepoDetailsVC.selectedIndexPath = selectedIndexPath
+            }
+        }
     }
 
 }
@@ -76,5 +81,14 @@ extension GitHubRepoListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension GitHubRepoListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let repoListViewModel = self.repoListViewModel, let repoModels = repoListViewModel.repoModels, indexPath.row < repoModels.count {
+            self.performSegue(withIdentifier: Constants.SHOW_REPO_DETAILS_VC_SEGUE, sender: self)
+        }
     }
 }
