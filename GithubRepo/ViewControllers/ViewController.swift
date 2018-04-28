@@ -37,7 +37,9 @@ class ViewController: UIViewController {
     
     @IBAction func searchButtonClicked(_ sender: UIButton) {
         if let searchKey = searchString {
+            self.view.showActivityIndicator()
             APIManager.sharedManager.getRepositoryData(withLanguage: searchKey) { (repoDataModel, error) in
+                self.view.hideActivityIndicator()
                 if let repoData = repoDataModel {
                     self.repoListViewModel = RepoListViewModel(with: repoData)
                     self.performSegue(withIdentifier: Constants.SHOW_REPO_LIST_VC_SEGUE, sender: self)

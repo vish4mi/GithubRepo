@@ -21,6 +21,8 @@ class GitHubRepoDetailsViewCell: UICollectionViewCell {
     var repoDetailsViewModel: RepoDetailsViewModel?
     @IBOutlet weak var repoDescriptionView: UIView!
     @IBOutlet weak var repoInfoView: UIView!
+    @IBOutlet weak var repoIssuesView: UIView!
+    @IBOutlet weak var repoContributorsView: UIView!
     
     func configure() {
         topIssuesCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
@@ -57,7 +59,9 @@ class GitHubRepoDetailsViewCell: UICollectionViewCell {
     
     func fetchRepoIssues(withURL urlString: String) {
         for i in 1...3 {
+            repoIssuesView.showActivityIndicator()
             APIManager.sharedManager.getRepositoryIssues(withURL: urlString, issueNumber: i) { (aModel, error) in
+                self.repoIssuesView.hideActivityIndicator()
                 if let issueModel = aModel {
                     let issueViewModel = RepoIssueViewModel(with: issueModel)
                     if self.issueViewModels == nil {
@@ -71,7 +75,9 @@ class GitHubRepoDetailsViewCell: UICollectionViewCell {
     }
     
     func fetchRepoContributors(withURL urlString: String) {
+        repoContributorsView.showActivityIndicator()
         APIManager.sharedManager.getRepositoryContributors(withURL: urlString) { (contribModels, error) in
+            self.repoContributorsView.hideActivityIndicator()
             if let userModels = contribModels {
                 for userModel in userModels {
                     let userViewModel = RepoContributorViewModel(with: userModel)

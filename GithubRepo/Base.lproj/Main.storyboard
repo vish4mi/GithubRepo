@@ -211,16 +211,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" defersCurrentPageDisplay="YES" numberOfPages="30" translatesAutoresizingMaskIntoConstraints="NO" id="asC-hT-mo5">
-                                <rect key="frame" x="30" y="627" width="315" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="IRM-gv-Fh7"/>
-                                </constraints>
-                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </pageControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C4n-8j-DFy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="563"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uBu-ws-bwg">
                                     <size key="itemSize" width="375" height="507"/>
@@ -230,7 +222,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GitHubRepoDetailsViewCell" id="9jX-Ml-8Hz" customClass="GitHubRepoDetailsViewCell" customModule="GithubRepo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="507"/>
+                                        <rect key="frame" x="0.0" y="43" width="375" height="507"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="507"/>
@@ -488,9 +480,11 @@
                                             <constraint firstAttribute="bottom" secondItem="wXO-xn-zuL" secondAttribute="bottom" id="cVO-Ja-drG"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="repoContributorsView" destination="nlW-MU-cuR" id="F0V-3x-h5u"/>
                                             <outlet property="repoDescriptionLabel" destination="cxj-IZ-ExT" id="e04-Di-a2o"/>
                                             <outlet property="repoDescriptionView" destination="6FD-Yz-HB5" id="H0i-Jr-fqu"/>
                                             <outlet property="repoInfoView" destination="U4i-yA-Ybf" id="Qnj-bu-zFv"/>
+                                            <outlet property="repoIssuesView" destination="2Q1-Kj-i0G" id="kg3-ue-bTe"/>
                                             <outlet property="topContributorsCollectionView" destination="HOW-vO-Y1B" id="A3Z-fL-xcb"/>
                                             <outlet property="topIssuesCollectionView" destination="ef1-Nj-i4B" id="Ij6-H5-dky"/>
                                         </connections>
@@ -504,19 +498,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Fc6-jn-ssl" firstAttribute="bottom" secondItem="asC-hT-mo5" secondAttribute="bottom" id="DyL-E7-PCS"/>
+                            <constraint firstItem="Fc6-jn-ssl" firstAttribute="bottom" secondItem="C4n-8j-DFy" secondAttribute="bottom" constant="10" id="bQy-fX-PV7"/>
                             <constraint firstItem="C4n-8j-DFy" firstAttribute="top" secondItem="Fc6-jn-ssl" secondAttribute="top" id="kxm-5p-Nns"/>
                             <constraint firstItem="Fc6-jn-ssl" firstAttribute="trailing" secondItem="C4n-8j-DFy" secondAttribute="trailing" id="nFU-92-wBb"/>
-                            <constraint firstItem="Fc6-jn-ssl" firstAttribute="trailing" secondItem="asC-hT-mo5" secondAttribute="trailing" constant="30" id="pTL-EF-9yG"/>
-                            <constraint firstItem="asC-hT-mo5" firstAttribute="top" secondItem="C4n-8j-DFy" secondAttribute="bottom" id="qmZ-dO-2dd"/>
                             <constraint firstItem="C4n-8j-DFy" firstAttribute="leading" secondItem="Fc6-jn-ssl" secondAttribute="leading" id="sMR-2l-Czn"/>
-                            <constraint firstItem="asC-hT-mo5" firstAttribute="leading" secondItem="Fc6-jn-ssl" secondAttribute="leading" constant="30" id="zRp-b3-aFS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fc6-jn-ssl"/>
                     </view>
                     <connections>
                         <outlet property="repoDetailsCollectionView" destination="C4n-8j-DFy" id="c5l-PN-PpR"/>
-                        <outlet property="repoPageControl" destination="asC-hT-mo5" id="NsC-Yk-2b6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knG-At-NOX" userLabel="First Responder" sceneMemberID="firstResponder"/>

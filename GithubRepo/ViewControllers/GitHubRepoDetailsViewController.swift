@@ -12,7 +12,6 @@ private let repoDetailsViewCellIdentifier = "GitHubRepoDetailsViewCell"
 
 class GitHubRepoDetailsViewController: UIViewController {
 
-    @IBOutlet weak var repoPageControl: UIPageControl!
     @IBOutlet weak var repoDetailsCollectionView: UICollectionView!
     var repoListViewModel: RepoListViewModel?
     var selectedIndexPath: IndexPath?
@@ -31,7 +30,6 @@ class GitHubRepoDetailsViewController: UIViewController {
         if visibleIndexPaths.count > 0 {
             let visibleIndexPath  = visibleIndexPaths[0]
             selectedIndexPath = visibleIndexPath
-            repoPageControl.currentPage = visibleIndexPath.row
             if let aModel = repoListViewModel, let repoModels = aModel.repoModels, visibleIndexPath.row < repoModels.count {
                 let repoModel = repoModels[visibleIndexPath.row]
                 let repoViewModel = RepoListCellViewModel(with: repoModel)
@@ -50,7 +48,7 @@ class GitHubRepoDetailsViewController: UIViewController {
         if !initialScrollDone {
             initialScrollDone = true
             if let indexPath = selectedIndexPath {
-                repoDetailsCollectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+                repoDetailsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
             }
         }
     }
@@ -59,7 +57,6 @@ class GitHubRepoDetailsViewController: UIViewController {
 extension GitHubRepoDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let repoListViewModel = self.repoListViewModel, let repoCount = repoListViewModel.repoCount {
-            repoPageControl.numberOfPages = repoCount
             return repoCount
         }
         return 0
@@ -106,7 +103,6 @@ extension GitHubRepoDetailsViewController: UICollectionViewDelegate {
         if visibleIndexPaths.count > 0 {
             let visibleIndexPath  = visibleIndexPaths[0]
             selectedIndexPath = visibleIndexPath
-            repoPageControl.currentPage = visibleIndexPath.row
             if let aModel = repoListViewModel, let repoModels = aModel.repoModels, visibleIndexPath.row < repoModels.count {
                 let repoModel = repoModels[visibleIndexPath.row]
                 let repoViewModel = RepoListCellViewModel(with: repoModel)
