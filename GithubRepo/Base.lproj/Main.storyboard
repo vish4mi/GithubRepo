@@ -211,11 +211,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="asC-hT-mo5">
-                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                            <pageControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="30" translatesAutoresizingMaskIntoConstraints="NO" id="asC-hT-mo5">
+                                <rect key="frame" x="30" y="627" width="315" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IRM-gv-Fh7"/>
                                 </constraints>
+                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C4n-8j-DFy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="563"/>
@@ -505,10 +507,10 @@
                             <constraint firstItem="Fc6-jn-ssl" firstAttribute="bottom" secondItem="asC-hT-mo5" secondAttribute="bottom" id="DyL-E7-PCS"/>
                             <constraint firstItem="C4n-8j-DFy" firstAttribute="top" secondItem="Fc6-jn-ssl" secondAttribute="top" id="kxm-5p-Nns"/>
                             <constraint firstItem="Fc6-jn-ssl" firstAttribute="trailing" secondItem="C4n-8j-DFy" secondAttribute="trailing" id="nFU-92-wBb"/>
-                            <constraint firstItem="Fc6-jn-ssl" firstAttribute="trailing" secondItem="asC-hT-mo5" secondAttribute="trailing" id="pTL-EF-9yG"/>
+                            <constraint firstItem="Fc6-jn-ssl" firstAttribute="trailing" secondItem="asC-hT-mo5" secondAttribute="trailing" constant="30" id="pTL-EF-9yG"/>
                             <constraint firstItem="asC-hT-mo5" firstAttribute="top" secondItem="C4n-8j-DFy" secondAttribute="bottom" id="qmZ-dO-2dd"/>
                             <constraint firstItem="C4n-8j-DFy" firstAttribute="leading" secondItem="Fc6-jn-ssl" secondAttribute="leading" id="sMR-2l-Czn"/>
-                            <constraint firstItem="asC-hT-mo5" firstAttribute="leading" secondItem="Fc6-jn-ssl" secondAttribute="leading" id="zRp-b3-aFS"/>
+                            <constraint firstItem="asC-hT-mo5" firstAttribute="leading" secondItem="Fc6-jn-ssl" secondAttribute="leading" constant="30" id="zRp-b3-aFS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fc6-jn-ssl"/>
                     </view>

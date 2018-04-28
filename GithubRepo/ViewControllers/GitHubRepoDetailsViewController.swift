@@ -18,14 +18,24 @@ class GitHubRepoDetailsViewController: UIViewController {
     var selectedIndexPath: IndexPath?
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        //repoDetailsCollectionView.reloadData()
+        super.viewDidLoad()        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let indexPath = selectedIndexPath {
-            repoDetailsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        let visibleIndexPaths = repoDetailsCollectionView.indexPathsForVisibleItems
+        if visibleIndexPaths.count > 0 {
+            let visibleIndexPath  = visibleIndexPaths[0]
+            selectedIndexPath = visibleIndexPath
+            repoPageControl.currentPage = visibleIndexPath.row
+            if let aModel = repoListViewModel, let repoModels = aModel.repoModels, visibleIndexPath.row < repoModels.count {
+                let repoModel = repoModels[visibleIndexPath.row]
+                let repoViewModel = RepoListCellViewModel(with: repoModel)
+                navigationItem.title = repoViewModel.repoTitle
+            }
         }
     }
     
@@ -76,5 +86,21 @@ extension GitHubRepoDetailsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+}
+
+extension GitHubRepoDetailsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let visibleIndexPaths = collectionView.indexPathsForVisibleItems
+        if visibleIndexPaths.count > 0 {
+            let visibleIndexPath  = visibleIndexPaths[0]
+            selectedIndexPath = visibleIndexPath
+            repoPageControl.currentPage = visibleIndexPath.row
+            if let aModel = repoListViewModel, let repoModels = aModel.repoModels, visibleIndexPath.row < repoModels.count {
+                let repoModel = repoModels[visibleIndexPath.row]
+                let repoViewModel = RepoListCellViewModel(with: repoModel)
+                navigationItem.title = repoViewModel.repoTitle
+            }
+        }
     }
 }
