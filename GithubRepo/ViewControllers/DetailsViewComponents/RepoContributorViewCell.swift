@@ -30,7 +30,7 @@ class RepoContributorViewCell: UICollectionViewCell {
             }
             
             if let avtarURL = aViewModel.userImageURL {
-                contributorProfileImageView.kf.setImage(with: URL(string: avtarURL), placeholder: "profile.png" as? Placeholder, options: nil, progressBlock: nil, completionHandler: nil)
+                contributorProfileImageView.kf.setImage(with: URL(string: avtarURL), placeholder: UIImage(named: "profile.png"), options: nil, progressBlock: nil, completionHandler: nil)
             }
         }
     }
